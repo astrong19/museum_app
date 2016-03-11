@@ -1,0 +1,27 @@
+<h1> Welcome to the Museum of Awesome Paintings </h1>
+
+<%= form_tag paintings_path, method: 'GET' do %>
+  <%= text_field_tag :q %>
+  <%= submit_tag "search" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @museums.each do |museum| %>
+    <tr>
+      <td><%= link_to museum.name, museum_paintings_path(museum) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<%= link_to "view all paintings", paintings_path%>

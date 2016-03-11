@@ -1,0 +1,25 @@
+<h1> Check these out </h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Style</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @paintings.each do |painting| %>
+      <tr>
+        <td><%= image_tag painting.image %></td>
+        <td><%= painting.title %></td>
+        <td><%= link_to painting.artist.name, artist_paintings_path(painting.artist) %></td>
+        <td><%= painting.style %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back", museums_path%>
